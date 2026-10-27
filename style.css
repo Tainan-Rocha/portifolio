@@ -1,0 +1,365 @@
+/* ========================================
+   1. CONFIGURAÇÕES GERAIS
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #172337;
+    background: #f3f8fa;
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    position: relative;
+    isolation: isolate;
+}
+
+/* Fundo decorativo desfocado */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(29, 123, 149, 0.3),
+            transparent 32%
+        ),
+            radial-gradient(
+            circle at 50% 0%,
+            rgba(29, 123, 149, 0.3),
+            transparent 32%
+        ),
+            radial-gradient(
+            circle at 90% 90%,
+            rgba(29, 123, 149, 0.3),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(111, 190, 215, 0.30),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 15% 75%,
+            rgba(172, 215, 226, 0.35),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 55% 90%,
+            rgba(172, 215, 226, 0.35),
+            transparent 35%
+        );
+
+    filter: blur(35px);
+}
+
+
+/* ========================================
+   2. CABEÇALHO
+======================================== */
+
+header {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 22px 45px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: -1px;
+
+    color: #239eb5;
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+nav a {
+    position: relative;
+
+    color: #465568;
+    text-decoration: none;
+    font-size: 17px;
+
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #239eb5;
+}
+
+
+/* ========================================
+   3. APRESENTAÇÃO PRINCIPAL
+======================================== */
+
+.apresentacao {
+    width: 100%;
+    max-width: 1100px;
+    min-height: 580px;
+
+    margin: 0 auto;
+    padding: 55px 65px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    gap: clamp(45px, 8vw, 110px);
+}
+
+/* Texto */
+
+.texto-apresentacao {
+    flex: 1;
+    max-width: 490px;
+}
+
+.subtitulo {
+    color: #239eb5;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+
+    margin-bottom: 17px;
+}
+
+.texto-apresentacao h1 {
+    font-size: clamp(38px, 4vw, 54px);
+    line-height: 1.1;
+    letter-spacing: -1.8px;
+
+    margin-bottom: 12px;
+}
+
+.texto-apresentacao h2 {
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.5;
+
+    color: #58677a;
+
+    margin-bottom: 18px;
+}
+
+.descricao {
+    max-width: 440px;
+
+    color: #58677a;
+    font-size: 14px;
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+}
+
+
+/* Botão */
+
+.botao {
+    display: inline-block;
+
+    padding: 12px 21px;
+
+    background: #239eb5;
+    color: #ffffff;
+
+    border-radius: 8px;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    box-shadow: 0 5px 15px rgba(35, 158, 181, 0.15);
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.botao:hover {
+    background: #187f94;
+    transform: translateY(-2px);
+}
+
+
+/* ========================================
+   4. FOTO DE PERFIL
+======================================== */
+
+.imagem-apresentacao {
+    flex-shrink: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+/* Moldura circular */
+
+.foto-perfil {
+    position: relative;
+    z-index: 1;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+    overflow: hidden;
+
+    background: #dce9ed;
+
+    border: 5px solid rgba(255, 255, 255, 0.75);
+
+    box-shadow:
+        0 15px 40px rgba(48, 77, 92, 0.12);
+}
+
+/* Imagem propriamente dita */
+
+.foto-perfil img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center 30%;
+
+    transform: none;
+}
+
+
+/* ========================================
+   5. EFEITO DE VIDRO FOSCO
+======================================== */
+
+.apresentacao {
+    border-radius: 24px;
+
+    background: rgba(255, 255, 255, 0.30);
+
+    border: 1px solid rgba(255, 255, 255, 0.70);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+
+/* ========================================
+   6. RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 900px) {
+    .apresentacao {
+        gap: 35px;
+        padding: 45px 35px;
+    }
+
+    .foto-perfil {
+        width: 220px;
+        height: 220px;
+    }
+
+    .imagem-apresentacao::before {
+        width: 250px;
+        height: 250px;
+    }
+
+    nav {
+        gap: 18px;
+    }
+}
+
+@media (max-width: 650px) {
+    header {
+        padding: 22px 7%;
+        flex-direction: column;
+        gap: 22px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .apresentacao {
+        min-height: auto;
+
+        flex-direction: column-reverse;
+        text-align: center;
+
+        gap: 35px;
+
+        margin: 15px auto;
+        padding: 40px 7% 50px;
+
+        width: 92%;
+    }
+
+    .texto-apresentacao {
+        width: 100%;
+    }
+
+    .texto-apresentacao h1 {
+        font-size: 39px;
+    }
+
+    .texto-apresentacao h2 {
+        font-size: 17px;
+    }
+
+    .descricao {
+        font-size: 14px;
+    }
+
+    .foto-perfil {
+        width: 200px;
+        height: 200px;
+    }
+
+    .imagem-apresentacao::before {
+        width: 220px;
+        height: 220px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+}
